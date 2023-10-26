@@ -1,4 +1,12 @@
-#navbar {
+.navbar {
+
+
+    background-color: orange;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+    padding: 25px;
     /*
     - Change background color to orange
     - Turn the navbar into a flex container w/ space between items
@@ -9,6 +17,12 @@
 }
 
 .title a {
+
+    color: white;
+    font-size: 35px;
+    margin-left: 25px;
+    text-decoration: none;
+    font-weight: bold;
     /*
     - Change font color to white
     - Set font size to 35px
@@ -20,6 +34,11 @@
 
 
 .nav_buttons a {
+
+    color: white;
+    font-size: 25px;
+    margin-right: 40px;
+    text-decoration: none;
     /*
     - Change font color to white
     - Set font size to 25px
