@@ -10,9 +10,8 @@ const Navbar = () => {
               
             </div>
             <div className={styles.nav_buttons}>
-            <Link href="/game">Add Sentence</Link>
-            <Link href="/game">Play Game</Link>
-            <Link href="/history">History</Link>
+            <Link href="/gamePage">Play Game</Link>
+            <Link href="/gameHistory">History</Link>
             {/* Link to other pages here! */}
             </div>
 

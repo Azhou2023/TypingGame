@@ -8,7 +8,7 @@ import Navbar from "../components/navbar-component/navbar.jsx"
 export default function Home() {
   return (
     /* Each function in JSX can only return ONE DOM element, so we have one top-level div */
-    <div className={styles.main}>
+    <div>
       <Navbar/>
         <div className={styles.welcome}>
           <h2> Welcome to Andrew </h2>
