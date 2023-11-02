@@ -5,7 +5,7 @@ import Navbar from "../components/navbar-component/navbar.jsx"
 
 
 
-export default function Home() {
+function Home() {
   return (
     /* Each function in JSX can only return ONE DOM element, so we have one top-level div */
     <div>
@@ -21,5 +21,7 @@ export default function Home() {
 
       </div>
     </div>
-  )
+  );
 }
+
+export default Home;

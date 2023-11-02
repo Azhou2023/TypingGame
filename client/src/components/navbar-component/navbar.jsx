@@ -1,7 +1,7 @@
 import styles from './navbar.module.css'
 import Link from 'next/link';
 
-const Navbar = () => {
+const NavBar = () => {
     return (
         
         <div className={styles.navbar}>
