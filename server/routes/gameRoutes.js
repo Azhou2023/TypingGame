@@ -6,6 +6,6 @@ const gameController = require('../controllers/gameController');
 // Add API routes here
 router.get('/game', gameController.getGame);
 
-router.post('/game', gameController.game);
+router.post('/game', gameController.postGame);
 
 module.exports = router;

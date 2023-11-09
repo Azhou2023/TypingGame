@@ -9,6 +9,12 @@
 
 }
 
+.topThree{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .image {
     display: flex;
     flex-direction: column;
