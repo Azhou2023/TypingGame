@@ -12,7 +12,6 @@ const Navbar = () => {
             <div className={styles.nav_buttons}>
             <Link href="/gamePage">Play Game</Link>
             <Link href="/gameHistory">History</Link>
-            {/* Link to other pages here! */}
             </div>
 
         </div>
@@ -21,4 +20,3 @@ const Navbar = () => {
 
 export default Navbar;
 
-// Export the NavBar, and import it in pages/_app.jsx to render it on all pages of your website!

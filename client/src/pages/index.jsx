@@ -7,18 +7,18 @@ import Navbar from "../components/navbar-component/navbar.jsx"
 
 function Home() {
   return (
-    /* Each function in JSX can only return ONE DOM element, so we have one top-level div */
-    <div>
+    <div className={styles.page}>
       <Navbar/>
         <div className={styles.welcome}>
-          <h2> Welcome to Andrew </h2>
-          <p>Andrew Land: happy fun place (no violense)</p>
+          <h1> AndrewType </h1>
+          <h2>The most polished typing game ever made.</h2>
+          <br /><br />
+          <p class={styles.text}>Click on 'Play Game' in the top right to begin!</p>
+          <p class={styles.text}>Click on 'History' to view all games played and the top 3 scores achieved.</p>
+
         </div>
       <div className={styles.image}>
-        <Image src={acmLogo} height="300" width="300"></Image>
-        <p>This is Andrew</p>
-      
-
+        <a href="https://acmucsd.com/" target="_blank"><Image src={acmLogo} height="150" width="150"></Image></a>
       </div>
     </div>
   );

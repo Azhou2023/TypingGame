@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 4rem;
+    /* margin-bottom: 4rem; */
 }
 
 .header {
@@ -11,8 +11,37 @@
     text-align: center;
 }
 
+
+
+.welcome {
+    /* margin: 40px 0px; */
+    font-size: 25px;
+    text-align: center;
+    color: black;
+
+}
+
 .top_three_cards, .all_cards {
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
+}
+
+.topThree{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.allGames{
+    display:flex;
+    justify-content: center;
+    flex-flow: wrap;
+
+}   
+
+.page{
+    min-height:100vh;
+    background-color: #23272f;
+
 }

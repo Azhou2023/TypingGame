@@ -25,11 +25,7 @@ const HistoryModule = ({sentence, correctCharacters, incorrectCharacters, wpm, t
 }
 
 
-                // <b>Sentence</b> {sentence}
-                // <b>Correct Characters</b> {correctCharacters}
-                // <b>Incorrect Characters</b> {incorrectCharacters}
-                // <b>Words Per Minute</b> {wpm}
-                // <b>Time (in mins)</b> {time}
+    
 export default HistoryModule;
 
 

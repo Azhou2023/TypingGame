@@ -1,26 +1,24 @@
 /* Homepage Styling */
 
 
+
 .welcome {
-    margin: 40px 0px;
+    /* margin: 40px 0px; */
     font-size: 25px;
     text-align: center;
     color: black;
 
 }
 
-.topThree{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
+.page{  
+    min-height: 100vh;
+    background-color: #23272f;
 }
 
 .image {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size:25px;
+    position: fixed;
+    right:30px;
+    bottom:30px;
 }
 
 .main{
@@ -29,4 +27,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.text{
+    font-size: 25;
 }
