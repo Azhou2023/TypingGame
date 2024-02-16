@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import acmLogo from "../assets/acmLogo.png";
+import acmLogo from "../assets/acmlogo.png";
 import Navbar from "../components/navbar-component/navbar.jsx";
 
 function Home() {
