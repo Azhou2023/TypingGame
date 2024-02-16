@@ -1,36 +1,23 @@
 .navbar {
+  background-color: #182b49;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  box-shadow: 0px 0px 34px 0px rgba(0, 0, 0, 0.4);
+}
 
-    background-color:#0e2752;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* margin-bottom: 35px; */
-    height: 10vh;
-    /*
-    - Change background color to orange
-    - Turn the navbar into a flex container w/ space between items
-    - Align the items vertically across the center
-    - Add a bottom margin of 35px
-    - Add a padding of 25px to thicken navbar
-    */
-  
-  }
-  
 .title a {
+  color: #c69214;
+  font-size: 35px;
+  margin-left: 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    color: gainsboro;
-    font-size: 35px;
-    margin-left: 25px;
-    text-decoration: none;
-    font-weight: bold;
-  
-  }
-  
 .nav_buttons a {
-
-    color: gainsboro;
-    font-size: 25px;
-    margin-right: 40px;
-    text-decoration: none;
-   
-  }
+  color: #c69214;
+  font-size: 25px;
+  margin-right: 40px;
+  text-decoration: none;
+}

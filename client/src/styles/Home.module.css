@@ -1,34 +1,37 @@
 /* Homepage Styling */
 
-
-
 .welcome {
-    /* margin: 40px 0px; */
-    font-size: 25px;
-    text-align: center;
-    color: black;
-
+  /* margin: 40px 0px; */
+  font-size: 25px;
+  text-align: center;
+  color: black;
+  padding-top: 15vh;
 }
 
-.page{  
-    min-height: 100vh;
-    background-color: #23272f;
+.gameWrapper {
+  text-align: center;
+  padding-top: 10vh;
+}
+
+.page {
+  min-height: 100vh;
+  background-color: #111e3d;
 }
 
 .image {
-    position: fixed;
-    right:30px;
-    bottom:30px;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
 }
 
-.main{
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.text{
-    font-size: 25;
+.text {
+  font-size: 25;
+  color: gainsboro;
 }

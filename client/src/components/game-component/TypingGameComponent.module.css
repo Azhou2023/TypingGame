@@ -1,62 +1,57 @@
 .typing_game {
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .start_game {
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px;
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
 }
 
-#options{
-    border-radius:100px;
+#options {
+  border-radius: 100px;
+  color: gainsboro;
 }
 
 #sentence_selector {
-    font-size: 1.5rem;
-    background-color: #23272f;
-    border-radius: 100px;
-    padding: 15px;
+  font-size: 1.5rem;
+  color: #111e3d;
+  border-radius: 20px;
+  background-color: #111e3d;
+  padding: 15px;
+  color: gainsboro;
 }
 
 .start_button {
-    background-color: #0e2752;
-    border-color: black;
-    color: white;
-    border-radius: 20px;
-    margin: 40px;
-    font-size: 25px;
-    height: 10vh;
-    width: 15vw;
-    transition-duration: 200ms;
-
+  background-color: #c69214;
+  border: none;
+  color: #1f375e;
+  border-radius: 20px;
+  margin: 40px;
+  font-size: 25px;
+  height: 10vh;
+  width: 15vw;
+  transition-duration: 200ms;
 }
 
 .start_button:hover {
-    opacity: 80%;
-    cursor: pointer;
-    transform:scale(1.025);
-  
+  cursor: pointer;
+  width: 16vw;
 }
 
 .typing_component {
-   
-    margin-bottom: 0px;
-    border-bottom: 1px solid black;
-    font-size: 2rem;
-    text-align: center;
+  margin-bottom: 0px;
+  border-bottom: 1px solid black;
+  font-size: 2rem;
+  text-align: center;
+  color: gainsboro;
 }
 
-#endCard{
-    transform: scale(0.9);
-
+#endCard {
+  transform: scale(0.9);
 }

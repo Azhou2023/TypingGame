@@ -1,10 +1,9 @@
-import React, {useState, useEffect } from "react";
-import useTypingGame, {PhaseType} from "react-typing-game-hook"; 
+import React, { useState, useEffect } from "react";
+import useTypingGame, { PhaseType } from "react-typing-game-hook";
 import styles from "./TypingGameComponent.module.css";
 import axios from "axios";
-import HistoryModule from "../game-history-component/gameHistory.jsx"
+import HistoryModule from "../game-history-component/gameHistory.jsx";
 
-//Currently using a hard coded sentence bank
 const sentenceData = [
   "The sun rose over the horizon, casting a warm golden glow.",
   "She sipped her coffee and watched the raindrops dance on the windowpane.",
@@ -21,21 +20,19 @@ const sentenceData = [
   "The chef carefully seasoned the dish with a pinch of salt.",
   "The hiker reached the summit and marveled at the breathtaking view.",
   "The clock ticked relentlessly, marking the passage of time.",
-  ];
+];
 
 const TypingGameComponent = () => {
+  const [gameStarted, setGameStarted] = useState(false);
+  const [selectedSentence, setSelectedSentence] = useState(sentenceData[0]);
+  const [statsObject, setStatsObject] = useState(null);
 
-    const [gameStarted, setGameStarted] = useState(false);
-    const [selectedSentence, setSelectedSentence] = useState(sentenceData[0]);
-    const [statsObject, setStatsObject] = useState(null); 
-
- 
   const {
-    states: { chars, charsState, phase, correctChar, errorChar},
+    states: { chars, charsState, phase, correctChar, errorChar },
     actions: { insertTyping, resetTyping, deleteTyping, getDuration },
   } = useTypingGame(selectedSentence, {
-    skipCurrentWordOnSpace: true,
-    pauseOnError: false,  
+    skipCurrentWordOnSpace: false,
+    pauseOnError: false,
     countErrors: "everytime",
   });
 
@@ -51,87 +48,104 @@ const TypingGameComponent = () => {
   const calculateWPM = () => {
     let numWords = selectedSentence.split(" ").length;
     let time = getDuration() / 1000 / 60;
-    return numWords/time;
+    return numWords / time;
   };
 
   const handleGameEnd = () => {
     let stats = {
-        sentence: chars,
-        correctCharacters: correctChar,
-        incorrectCharacters: errorChar,
-        wpm: calculateWPM().toFixed(2),
-        time: (getDuration()/1000/60).toFixed(2)
+      sentence: chars,
+      accuracy:
+        (correctChar / (correctChar + errorChar)).toFixed(2) * 100 + "%",
+      wpm: calculateWPM().toFixed(2),
+      time: (getDuration() / 1000).toFixed(2),
     };
-    
+
     setStatsObject(stats);
-    sendGameStats(stats);
+    if ((correctChar / (correctChar + errorChar)).toFixed(2) > 0.75) {
+      sendGameStats(stats);
+    }
   };
 
   const sendGameStats = async (stats) => {
-    try{
-        const response = await axios.post("http://localhost:5050/api/game", stats);
-        console.log(response.data); 
-    }catch (error){
-        console.error("Failed to create game stats", error);
+    try {
+      const response = await axios.post(
+        "http://localhost:5050/api/game",
+        stats
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error("Failed to create game stats", error);
     }
   };
 
-  useEffect(()=>{
-    if(phase === PhaseType.Started && charsState.length === chars.length+1){
-        handleGameEnd();
+  useEffect(() => {
+    console.log(chars.length);
+    console.log(phase);
+    if (phase === PhaseType.Ended) {
+      handleGameEnd();
     }
-  }, [phase, charsState.length]);
+  }, [phase, chars.length]);
 
   return (
     <div className={styles.typing_game}>
-      { !gameStarted ?  (
+      {!gameStarted ? (
         <div className={styles.start_game}>
           <div>
-            <h3>Select a Sentence:</h3>
-            <select name="Sentences" id={styles.sentence_selector} onChange={(e)=>setSelectedSentence(e.target.value)}> 
-                
-                {sentenceData.map((sentence, index)=>
-                        (<option id={styles.options} key={index}>{sentence}</option>) 
-                )}
+            <h2 style={{ color: "gainsboro" }}>Select a Sentence:</h2>
+            <select
+              name="Sentences"
+              id={styles.sentence_selector}
+              onChange={(e) => setSelectedSentence(e.target.value)}
+            >
+              {sentenceData.map((sentence, index) => (
+                <option id={styles.options} key={index}>
+                  {sentence}
+                </option>
+              ))}
             </select>
-        </div>
-          <button class={styles.start_button} onClick={handleGameStart}>Start Game</button>
+          </div>
+          <button class={styles.start_button} onClick={handleGameStart}>
+            Start Game
+          </button>
         </div>
       ) : (
         <div className={styles.typing_component}>
-        <p>Click on the sentence below and start typing!</p>
-        <h2 
+          <p style={{ color: "gainsboro" }}>
+            Click on the sentence below and start typing!
+          </p>
+          <h2
             onKeyDown={(e) => {
-                const key = e.key;
-                if (key === "Escape") {
-                    resetTyping();
-                } else if (key === "Backspace") {
-                    deleteTyping(false);
-                } else if (key.length === 1) {
-                    insertTyping(key);
-                }
+              const key = e.key;
+              if (key === "Escape") {
+                resetTyping();
+              } else if (key === "Backspace") {
+                deleteTyping(false);
+              } else if (key.length === 1) {
+                insertTyping(key);
+              }
 
-                e.preventDefault();
+              e.preventDefault();
             }}
-            tabIndex={0}
-            onBlur={handleGameEnd} 
-        >
-        {chars.split("").map((char, index) => {
-            let state = charsState[index]; 
-            let color = state === 0 ? "#c9c9c9" : state === 1 ? "#417B5A" : "#FF6B6B";
-            return (
+            tabIndex={1}
+          >
+            {chars.split("").map((char, index) => {
+              let state = charsState[index];
+              let color =
+                state === 0 ? "#c9c9c9" : state === 1 ? "#c69214" : "#FF6B6B";
+              return (
                 <span key={char + index} style={{ color }}>
-                    {char}  
+                  {char}
                 </span>
-            );
-        })}
-        </h2>
+              );
+            })}
+          </h2>
         </div>
       )}
-        <span id={styles.endCard}>{statsObject && (<HistoryModule {...statsObject}/>)}</span>
+      <span id={styles.endCard}>
+        {statsObject && <HistoryModule {...statsObject} />}
+      </span>
     </div>
   );
 };
 
 export default TypingGameComponent;
-
