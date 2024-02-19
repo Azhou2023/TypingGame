@@ -4,7 +4,7 @@ const config = require("./config");
 const router = require("./routes/gameRoutes");
 const mongoose = require("mongoose");
 
-export const server = express();
+const server = express();
 
 server.use(cors());
 server.use(express.json());
