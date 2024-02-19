@@ -69,7 +69,7 @@ const TypingGameComponent = () => {
   const sendGameStats = async (stats) => {
     try {
       const response = await axios.post(
-        "http://localhost:5050/api/game",
+        "https://tritontype.onrender.com/api/game",
         stats
       );
       console.log(response.data);
@@ -104,7 +104,7 @@ const TypingGameComponent = () => {
               ))}
             </select>
           </div>
-          <button class={styles.start_button} onClick={handleGameStart}>
+          <button className={styles.start_button} onClick={handleGameStart}>
             Start Game
           </button>
         </div>

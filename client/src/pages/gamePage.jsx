@@ -5,6 +5,7 @@ import TypingGameComponent from "@/components/game-component/TypingGameComponent
 export default function gamePage() {
   return (
     <div className={styles.page}>
+      <title>Play Game</title>
       <Navbar />
       <div className={styles.gameWrapper}>
         <h1>Play Game</h1>

@@ -9,7 +9,9 @@ export default function gameHistory() {
   const [allStats, setAllStats] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5050/api/game");
+      const response = await axios.get(
+        "https://tritontype.onrender.com/api/game"
+      );
       let sortedData = response.data.sort((a, b) => b.wpm - a.wpm);
       console.log(sortedData);
       setTopStats(sortedData.slice(0, 3));
@@ -23,7 +25,8 @@ export default function gameHistory() {
   }, []);
 
   return (
-    <div class={styles.page}>
+    <div className={styles.page}>
+      <title>Leaderboard</title>
       <Navbar />
       <div className={styles.welcome}>
         <h1>Top 3 Games</h1>

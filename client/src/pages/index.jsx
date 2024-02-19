@@ -1,27 +1,22 @@
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import acmLogo from "../assets/acmlogo.png";
 import Navbar from "../components/navbar-component/navbar.jsx";
 
 function Home() {
   return (
     <div className={styles.page}>
+      <title>TritonType | Home</title>
       <Navbar />
       <div className={styles.welcome}>
         <h1> TritonType </h1>
         <br />
-        <p class={styles.text}>
+        <p className={styles.text}>
           Click on 'Play Game' in the top right to begin!
         </p>
-        <p class={styles.text}>
+        <p className={styles.text}>
           Click on 'History' to view all games played and the top 3 scores
           achieved.
         </p>
-      </div>
-      <div className={styles.image}>
-        <a href="https://acmucsd.com/" target="_blank">
-          <Image src={acmLogo} height="150" width="150"></Image>
-        </a>
       </div>
     </div>
   );
