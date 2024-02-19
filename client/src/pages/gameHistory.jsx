@@ -7,6 +7,7 @@ import axios from "axios";
 export default function gameHistory() {
   const [topStats, setTopStats] = useState([]);
   const [allStats, setAllStats] = useState([]);
+  const [loading, setLoading] = useState(true);
   const fetchData = async () => {
     try {
       const response = await axios.get(
@@ -16,6 +17,7 @@ export default function gameHistory() {
       console.log(sortedData);
       setTopStats(sortedData.slice(0, 3));
       setAllStats(sortedData.slice(3));
+      setLoading(false);
     } catch (error) {
       console.error("Failed to fetch game stats: ", error);
     }
@@ -28,20 +30,27 @@ export default function gameHistory() {
     <div className={styles.page}>
       <title>Leaderboard</title>
       <Navbar />
-      <div className={styles.welcome}>
-        <h1>Top 3 Games</h1>
-        <div className={styles.topThree}>
-          {topStats.map((game, index) => (
-            <HistoryModule key={index} {...game} />
-          ))}
+      {!loading ? (
+        <div className={styles.welcome}>
+          <h1>Top 3 Games</h1>
+          <div className={styles.topThree}>
+            {topStats.map((game, index) => (
+              <HistoryModule key={index} {...game} />
+            ))}
+          </div>
+          <h1>All Games</h1>
+          <div className={styles.allGames}>
+            {allStats.map((game, index) => (
+              <HistoryModule key={index} {...game} />
+            ))}
+          </div>
         </div>
-        <h1>All Games</h1>
-        <div className={styles.allGames}>
-          {allStats.map((game, index) => (
-            <HistoryModule key={index} {...game} />
-          ))}
+      ) : (
+        <div className={styles.welcome}>
+          <h1>Loading...</h1>
+          <div>(This may take a few seconds)</div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
